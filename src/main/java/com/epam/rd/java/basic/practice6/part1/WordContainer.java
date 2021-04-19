@@ -33,7 +33,7 @@ public class WordContainer {
         }
         Collections.sort(outList);
         for (Word w:outList) {
-            System.out.println(w.getContent()+": "+w.getFrequency());
+            System.out.println(w.getContent()+" : "+w.getFrequency());
         }
     }
 
