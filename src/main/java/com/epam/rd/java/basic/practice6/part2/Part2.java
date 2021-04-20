@@ -19,18 +19,18 @@ public class Part2 {
             list3.add(i);
         }
         long start = System.currentTimeMillis();
-        removeByIndex(list1, 4);
-        System.out.println("ArrayList#Index: " + (System.currentTimeMillis() - start) + " ms");
-        long start1 = System.currentTimeMillis();
         removeByIndex(list, 4);
-        System.out.println("LinkedList#Index: " + (System.currentTimeMillis() - start1) + " ms");
+        System.out.println("ArrayList#Index: "+ (System.currentTimeMillis() - start)+" ms");
+        long start1 = System.currentTimeMillis();
+        removeByIndex(list1, 4);
+        System.out.println("LinkedList#Index: "+ (System.currentTimeMillis() - start1)+" ms");
 
         long start2 = System.currentTimeMillis();
         removeByIterator(list2, 4);
-        System.out.println("ArrayList#Iterator: " + (System.currentTimeMillis() - start2) + " ms");
+        System.out.println("ArrayList#Iterator: "+ (System.currentTimeMillis() - start2)+" ms");
         long start3 = System.currentTimeMillis();
         removeByIterator(list3, 4);
-        System.out.println("LinkedList#Iterator: " + (System.currentTimeMillis() - start3) + " ms");
+        System.out.println("LinkedList#Iterator: "+ (System.currentTimeMillis() - start3)+" ms");
     }
 
     public static long removeByIndex(final List<Integer> list, final int k) {
