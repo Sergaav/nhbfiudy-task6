@@ -15,7 +15,7 @@ public class Part1 {
 		try {
 			WordContainer.main(args);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 		System.setIn(temp);
 
