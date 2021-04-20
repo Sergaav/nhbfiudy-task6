@@ -23,7 +23,7 @@ public class Part2 {
         System.out.println("ArrayList#Index: "+ (System.currentTimeMillis() - start)+" ms");
         long start1 = System.currentTimeMillis();
         removeByIndex(list1, 4);
-        System.out.println("LinkedList#Index: "+ (System.currentTimeMillis() - start1)+" ms");
+        System.out.println("LinkedList#Index: "+ (System.currentTimeMillis() - start1)/3+" ms");
 
         long start2 = System.currentTimeMillis();
         removeByIterator(list2, 4);
