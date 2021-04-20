@@ -33,15 +33,16 @@ public class Part2 {
         System.out.println("LinkedList#Iterator: " + (System.currentTimeMillis() - start3) + " ms");
     }
 
-    public static void removeByIndex(final List<Integer> list, final int k) {
+    public static long removeByIndex(final List<Integer> list, final int k) {
         int pos = 0;
         while (list.size() != 1) {
             pos = (pos + k - 1) % list.size();
             list.remove(pos);
         }
+        return list.get(0);
     }
 
-    public static void removeByIterator(final List<Integer> list, int k) {
+    public static long removeByIterator(final List<Integer> list, int k) {
         Iterator<Integer> iterator;
         int pos = k;
         while (list.size() != 1) {
@@ -57,5 +58,6 @@ public class Part2 {
                 }
             }
         }
+        return list.get(0);
     }
 }
