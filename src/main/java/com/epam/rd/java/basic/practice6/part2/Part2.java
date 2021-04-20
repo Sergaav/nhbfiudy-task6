@@ -19,10 +19,10 @@ public class Part2 {
             list3.add(i);
         }
         long start = System.currentTimeMillis();
-        removeByIndex(list, 4);
+        removeByIndex(list1, 4);
         System.out.println("ArrayList#Index: " + (System.currentTimeMillis() - start) + " ms");
         long start1 = System.currentTimeMillis();
-        removeByIndex(list1, 4);
+        removeByIndex(list, 4);
         System.out.println("LinkedList#Index: " + (System.currentTimeMillis() - start1) + " ms");
 
         long start2 = System.currentTimeMillis();
