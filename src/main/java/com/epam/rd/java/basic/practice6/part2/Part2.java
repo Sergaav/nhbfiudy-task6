@@ -18,31 +18,24 @@ public class Part2 {
             list2.add(i);
             list3.add(i);
         }
-        long start = System.currentTimeMillis();
-        removeByIndex(list, 4);
-        System.out.println("ArrayList#Index: "+ (System.currentTimeMillis() - start)+" ms");
-        long start1 = System.currentTimeMillis();
-        removeByIndex(list1, 4);
-        System.out.println("LinkedList#Index: "+ (System.currentTimeMillis() - start1)/3+" ms");
-
-        long start2 = System.currentTimeMillis();
-        removeByIterator(list2, 4);
-        System.out.println("ArrayList#Iterator: "+ (System.currentTimeMillis() - start2)+" ms");
-        long start3 = System.currentTimeMillis();
-        removeByIterator(list3, 4);
-        System.out.println("LinkedList#Iterator: "+ (System.currentTimeMillis() - start3)+" ms");
+        System.out.println("ArrayList#Index: " + removeByIndex(list, 4) + " ms");
+        System.out.println("LinkedList#Index: " + removeByIndex(list1, 4) + " ms");
+        System.out.println("ArrayList#Iterator: " + removeByIterator(list2, 4) + " ms");
+        System.out.println("LinkedList#Iterator: " + removeByIterator(list3, 4) + " ms");
     }
 
     public static long removeByIndex(final List<Integer> list, final int k) {
+        long start = System.currentTimeMillis();
         int pos = 0;
         while (list.size() != 1) {
             pos = (pos + k - 1) % list.size();
             list.remove(pos);
         }
-        return list.get(0);
+        return System.currentTimeMillis() - start;
     }
 
     public static long removeByIterator(final List<Integer> list, int k) {
+        long start = System.currentTimeMillis();
         Iterator<Integer> iterator;
         int pos = k;
         while (list.size() != 1) {
@@ -58,6 +51,6 @@ public class Part2 {
                 }
             }
         }
-        return list.get(0);
+        return System.currentTimeMillis() - start;
     }
 }
