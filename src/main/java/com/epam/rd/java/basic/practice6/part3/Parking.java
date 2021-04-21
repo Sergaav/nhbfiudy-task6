@@ -17,6 +17,9 @@ public class Parking {
     }
 
     public boolean arrive(int k) {
+        if (k < 0 || k >= listParkingSlots.size()) {
+            throw new IllegalArgumentException();
+        }
         if (listParkingSlots.get(k) == 0) {
             listParkingSlots.set(k, 1);
             return true;
