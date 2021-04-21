@@ -12,6 +12,10 @@ public class Parking {
         }
     }
 
+    public List<Integer> getListParkingSlots() {
+        return listParkingSlots;
+    }
+
     public boolean arrive(int k) {
         if (listParkingSlots.get(k) == 0) {
             listParkingSlots.set(k, 1);
