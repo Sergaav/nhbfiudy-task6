@@ -12,7 +12,7 @@ public class Part2 {
         List<Integer> list1 = new LinkedList<>();
         List<Integer> list2 = new ArrayList<>();
         List<Integer> list3 = new LinkedList<>();
-        for (int i = 0; i < 10000; ++i) {
+        for (int i = 0; i < 100000; ++i) {
             list.add(i);
             list1.add(i);
             list2.add(i);
