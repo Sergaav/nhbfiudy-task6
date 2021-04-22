@@ -6,9 +6,14 @@ public class Tree<E extends Comparable<E>> {
     private Node<E> rootNode;
 
     public boolean add(E element) {
-        rootNode = doInsert(rootNode, element);
-        return rootNode != null;
+        if (findElement(rootNode, element)) {
+            return false;
+        } else {
+            rootNode = doInsert(rootNode, element);
+            return rootNode != null;
+        }
     }
+
 
     public Node<E> doInsert(Node<E> node, E x) {
         if (node == null) {
@@ -21,9 +26,6 @@ public class Tree<E extends Comparable<E>> {
             node.leftChild = doInsert(node.leftChild, x);
         } else if (x.compareTo(node.getValue()) > 0) {
             node.rightChild = doInsert(node.rightChild, x);
-        }
-        if (x.compareTo(node.getValue()) != 0) {
-            node = null;
         }
 
         return node;
@@ -70,6 +72,20 @@ public class Tree<E extends Comparable<E>> {
         } else {
             return node;
         }
+    }
+
+    public boolean findElement(Node<E> node, E element) {
+        boolean isFind = false;
+        if (node != null) {
+            if (element.compareTo(node.getValue()) == 0) {
+                isFind = true;
+            } else if (element.compareTo(node.getValue()) > 0) {
+                isFind = findElement(node.rightChild, element);
+            } else if (element.compareTo(node.getValue()) < 0) {
+                isFind = findElement(node.leftChild, element);
+            }
+        }
+        return isFind;
     }
 
     public void print() {
