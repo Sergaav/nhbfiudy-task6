@@ -20,7 +20,8 @@ public class Tree<E extends Comparable<E>> {
             node.leftChild = doInsert(node.leftChild, x);
         } else if (x.compareTo(node.getValue()) > 0) {
             node.rightChild = doInsert(node.rightChild, x);
-        }else {
+        }
+        if (x.compareTo(node.getValue()) == 0){
             return null;
         }
         return node;
