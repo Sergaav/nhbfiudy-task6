@@ -18,11 +18,13 @@ public class Demo {
 		System.out.println("~~~~~~~~~~~~Part6");
 
 		String fileName = "part6.txt";
-		Part6.main(new String[] {"--input", fileName, "--task","frequency"});
+		String fullTitle = "--task";
+		String fullInput = "--input";
+		Part6.main(new String[] {fullInput, fileName, fullTitle,"frequency"});
 		System.out.println("_______________");
-		Part6.main(new String[] {"--input", fileName, "--task","length"});
+		Part6.main(new String[] {fullInput, fileName, fullTitle,"length"});
 		System.out.println("----------------");
-		Part6.main(new String[] {"--input", fileName, "--task","duplicates"});
+		Part6.main(new String[] {fullInput, fileName, fullTitle,"duplicates"});
 
 	}
 

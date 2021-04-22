@@ -23,7 +23,7 @@ public class Part6 {
                     list.addAll(Arrays.asList(words));
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println(e.getMessage());
             }
         }
         if (args[2].equals("-t") || args[2].equals("--task")) {
