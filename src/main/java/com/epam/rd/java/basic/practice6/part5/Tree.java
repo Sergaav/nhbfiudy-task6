@@ -39,8 +39,12 @@ public class Tree<E extends Comparable<E>> {
     }
 
     public boolean remove(E element) {
-        Node<E> node = removeElement(rootNode, element);
-        return node != null;
+        if (!findElement(rootNode, element)) {
+            return false;
+        } else {
+            Node<E> node = removeElement(rootNode, element);
+            return node != null;
+        }
     }
 
     public Node<E> removeElement(Node<E> node, E el) {
