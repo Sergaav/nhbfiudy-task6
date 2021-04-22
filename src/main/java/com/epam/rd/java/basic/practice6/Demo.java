@@ -19,7 +19,9 @@ public class Demo {
 
 		String fileName = "part6.txt";
 		Part6.main(new String[] {"--input", fileName, "--task","frequency"});
+		System.out.println("_______________");
 		Part6.main(new String[] {"--input", fileName, "--task","length"});
+		System.out.println("----------------");
 		Part6.main(new String[] {"--input", fileName, "--task","duplicates"});
 
 	}
