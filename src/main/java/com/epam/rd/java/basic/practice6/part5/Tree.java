@@ -16,14 +16,16 @@ public class Tree<E extends Comparable<E>> {
             node.setValue(x);
             return node;
         }
+
         if (x.compareTo(node.getValue()) < 0) {
             node.leftChild = doInsert(node.leftChild, x);
         } else if (x.compareTo(node.getValue()) > 0) {
             node.rightChild = doInsert(node.rightChild, x);
         }
-        if (x.compareTo(node.getValue()) == 0){
-            return null;
+        if (x.compareTo(node.getValue()) != 0) {
+            node = null;
         }
+
         return node;
     }
 
@@ -71,23 +73,23 @@ public class Tree<E extends Comparable<E>> {
     }
 
     public void print() {
-      Object [] result = printNode(rootNode);
-      for (Object o : result){
-          System.out.println(o.toString());
-      }
+        Object[] result = printNode(rootNode);
+        for (Object o : result) {
+            System.out.println(o.toString());
+        }
     }
 
-    public Object [] printNode(Node<E> node) {
+    public Object[] printNode(Node<E> node) {
         ArrayList<String> result = new ArrayList<>();
         if (node.leftChild != null) {
-            Object [] temp = printNode(node.leftChild);
+            Object[] temp = printNode(node.leftChild);
             for (Object o : temp) {
                 result.add("  " + o);
             }
         }
         result.add(node.getValue().toString());
         if (node.rightChild != null) {
-            Object [] temp = printNode(node.rightChild);
+            Object[] temp = printNode(node.rightChild);
             for (Object o : temp) {
                 result.add("  " + o);
             }
