@@ -1,5 +1,8 @@
 package com.epam.rd.java.basic.practice6.part5;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Tree<E extends Comparable<E>> {
     private Node<E> rootNode;
 
@@ -70,29 +73,28 @@ public class Tree<E extends Comparable<E>> {
     }
 
     public void print() {
-        if (rootNode.leftChild != null) {
-            printNode(rootNode.leftChild);
-        }
-        System.out.println(rootNode.getValue());
-        if (rootNode.rightChild != null) {
-            printNode(rootNode.rightChild);
-        }
-
+      Object [] result = printNode(rootNode);
+      for (Object o : result){
+          System.out.println(o.toString());
+      }
     }
 
-    public void printNode(Node<E> node) {
-        int height = 0;
+    public Object [] printNode(Node<E> node) {
+        ArrayList<String> result = new ArrayList<>();
         if (node.leftChild != null) {
-            printNode(node.leftChild);
-        } else if (node.rightChild != null) {
-            printNode(node.rightChild);
-        } else {
-            height = calcHeight(node);
-            for (int i = 0; i < height; i++) {
-                System.out.print("  ");
+            Object [] temp = printNode(node.leftChild);
+            for (int i = 0; i < temp.length; i++) {
+                result.add("  "+ temp[i]);
             }
-            System.out.println(node.getValue());
         }
+        result.add(node.getValue().toString());
+        if (node.rightChild != null) {
+            Object [] temp = printNode(node.rightChild);
+            for (int i = 0; i < temp.length; i++) {
+                result.add("  " + temp[i]);
+            }
+        }
+        return result.toArray();
     }
 
     public int calcHeight(Node<E> node) {
